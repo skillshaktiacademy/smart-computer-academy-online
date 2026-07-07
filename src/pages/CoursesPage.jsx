@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Clock, GraduationCap, ArrowRight, Tag, CheckCircle2, Phone, Sparkles } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 import { siteInfo } from '../data/site';
+import { courseImage } from '../data/media';
 
 const colorBg = {
   green:  'bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/30',
@@ -85,20 +86,29 @@ export default function CoursesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="bg-card border border-border rounded-2xl p-5 hover:shadow-xl hover:border-primary/30 transition-all flex flex-col gap-4"
+                  className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all flex flex-col group"
                 >
+                  {/* Image header */}
+                  <div className="relative h-36 w-full overflow-hidden">
+                    <img
+                      src={courseImage(course.name)}
+                      alt={`${course.name} — ${course.fullName}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 right-2 flex flex-col items-end gap-1">
+                      {course.popular && <span className="text-[9px] bg-orange-500 text-white font-bold px-2 py-0.5 rounded-full shadow">Popular</span>}
+                      {course.newBatch && <span className="text-[9px] bg-green-500 text-white font-bold px-2 py-0.5 rounded-full shadow">New Batch</span>}
+                    </div>
+                  </div>
+
+                  <div className="p-5 flex flex-col gap-4 flex-grow">
                   {/* Header */}
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full border ${badgeClass} mb-2`}>
-                        {course.name}
-                      </span>
-                      <h2 className="font-bold text-base leading-snug">{course.fullName}</h2>
-                    </div>
-                    <div className="flex flex-col items-end gap-1 shrink-0">
-                      {course.popular && <span className="text-[9px] bg-orange-500 text-white font-bold px-2 py-0.5 rounded-full">Popular</span>}
-                      {course.newBatch && <span className="text-[9px] bg-green-500 text-white font-bold px-2 py-0.5 rounded-full">New Batch</span>}
-                    </div>
+                  <div>
+                    <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full border ${badgeClass} mb-2`}>
+                      {course.name}
+                    </span>
+                    <h2 className="font-bold text-base leading-snug">{course.fullName}</h2>
                   </div>
 
                   <p className="text-sm text-muted-foreground">{course.description}</p>
@@ -136,6 +146,7 @@ export default function CoursesPage() {
                   >
                     Enquire Now <ArrowRight size={14} />
                   </Link>
+                  </div>
                 </motion.article>
               );
             })}

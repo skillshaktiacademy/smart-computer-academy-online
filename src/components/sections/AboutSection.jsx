@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, BadgeCheck } from 'lucide-react';
+import { siteInfo } from '../../data/site';
+import praveenImg from '../../assets/Team/praveen.jpeg';
 
 export default function AboutSection() {
   const points = [
@@ -22,10 +24,19 @@ export default function AboutSection() {
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-3xl blur-2xl"></div>
-            <div className="relative bg-muted/40 border border-border rounded-3xl p-8 aspect-square flex items-center justify-center overflow-hidden">
-               {/* Replace with actual image in production */}
-               <div className="w-full h-full bg-slate-200 dark:bg-slate-800 rounded-xl flex items-center justify-center">
-                  <span className="text-muted-foreground">About Image/Video Mockup</span>
+            <div className="relative rounded-3xl aspect-[4/5] max-w-sm mx-auto lg:max-w-none overflow-hidden border border-border shadow-xl bg-muted">
+               <img
+                 src={praveenImg}
+                 alt={`${siteInfo.founder} — ${siteInfo.founderTitle}, ${siteInfo.name}`}
+                 className="w-full h-full object-cover object-top"
+                 loading="lazy"
+               />
+               {/* Name badge */}
+               <div className="absolute bottom-4 left-4 right-4 bg-card/90 backdrop-blur-sm border border-border shadow-lg rounded-2xl px-4 py-3">
+                 <p className="font-bold text-base leading-tight">{siteInfo.founder}</p>
+                 <p className="text-xs text-primary font-medium flex items-center gap-1">
+                   <BadgeCheck size={13} /> {siteInfo.founderTitle}
+                 </p>
                </div>
             </div>
           </motion.div>

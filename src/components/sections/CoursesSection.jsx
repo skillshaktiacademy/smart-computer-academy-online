@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SectionHeader from '../ui/SectionHeader';
 import { Clock, GraduationCap, ArrowRight, Tag, Sparkles } from 'lucide-react';
 import { siteInfo } from '../../data/site';
+import { courseImage } from '../../data/media';
 
 const colorMap = {
   green:  'from-green-500/20 to-green-600/5 border-green-500/30 text-green-600',
@@ -55,8 +56,16 @@ export default function CoursesSection() {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all group flex flex-col h-full"
               >
-                {/* Color Header */}
-                <div className={`h-2 w-full bg-gradient-to-r ${colorClass.split(' ')[0]} ${colorClass.split(' ')[1]}`} />
+                {/* Image Header */}
+                <div className="relative h-40 w-full overflow-hidden">
+                  <img
+                    src={courseImage(course.name)}
+                    alt={`${course.name} — ${course.fullName}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${colorClass.split(' ')[0]} to-transparent opacity-60 mix-blend-multiply`} />
+                </div>
 
                 <div className="p-5 flex flex-col flex-grow gap-4">
                   {/* Title + badges row */}

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, UserPlus, Building2 } from 'lucide-react';
+import { ArrowRight, UserPlus, Building2 } from 'lucide-react';
+import { media } from '../../data/media';
 
 export default function HeroSection() {
   return (
@@ -59,16 +60,16 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex-1 relative w-full max-w-lg lg:max-w-none"
         >
-          {/* Main Image Mockup Placeholder */}
-          <div className="relative rounded-2xl overflow-hidden glassmorphism aspect-[4/3] flex items-center justify-center p-8 bg-gradient-to-tr from-slate-100 to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-white/40 dark:border-white/10 shadow-2xl">
-            <div className="absolute inset-0 bg-grid-slate-200 dark:bg-grid-slate-800 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.5))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05))]"></div>
-            <div className="relative z-10 text-center space-y-4">
-               <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                 <BookOpen size={48} className="text-primary" />
-               </div>
-               <h3 className="text-2xl font-bold">Interactive Learning</h3>
-               <p className="text-muted-foreground">Modern curriculum for the digital age</p>
-            </div>
+          {/* Main showcase image */}
+          <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/40 dark:border-white/10 shadow-2xl">
+            <img
+              src={media.heroShowcase}
+              alt="Students learning at Smart Computer Academy's modern computer lab"
+              className="w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           </div>
 
           {/* Floating Cards */}

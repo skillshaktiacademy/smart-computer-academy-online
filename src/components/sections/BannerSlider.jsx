@@ -32,15 +32,15 @@ export default function BannerSlider() {
   if (count === 0) return null;
 
   return (
-    <section aria-label="Highlights" className="w-full py-10 md:py-16 bg-muted/20">
+    <section aria-label="Highlights" className="w-full py-6 md:py-10 bg-muted/20">
       <div className="container px-4 md:px-6">
         <div
           className="relative w-full overflow-hidden rounded-2xl md:rounded-3xl border border-border bg-gradient-to-br from-slate-900 to-slate-800 shadow-xl"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          {/* Aspect band; object-contain keeps banner text fully visible */}
-          <div className="relative aspect-[4/3] sm:aspect-video w-full">
+          {/* Shorter, responsive band; object-contain keeps banner text fully visible */}
+          <div className="relative aspect-video md:aspect-[21/8] w-full">
             <AnimatePresence mode="wait">
               <motion.img
                 key={current}
@@ -64,17 +64,17 @@ export default function BannerSlider() {
                 type="button"
                 onClick={prev}
                 aria-label="Previous slide"
-                className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm transition-colors touch-manipulation"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm transition-colors touch-manipulation"
               >
-                <ChevronLeft size={22} />
+                <ChevronLeft className="w-4 h-4 sm:w-[22px] sm:h-[22px]" />
               </button>
               <button
                 type="button"
                 onClick={next}
                 aria-label="Next slide"
-                className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm transition-colors touch-manipulation"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm transition-colors touch-manipulation"
               >
-                <ChevronRight size={22} />
+                <ChevronRight className="w-4 h-4 sm:w-[22px] sm:h-[22px]" />
               </button>
             </>
           )}
