@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SectionHeader from '../ui/SectionHeader';
 import { Clock, GraduationCap, Wallet, ArrowRight } from 'lucide-react';
 import { siteInfo } from '../../data/site';
@@ -50,19 +51,19 @@ export default function CoursesSection() {
                   </div>
                 </div>
                 
-                <a href="#contact" className="inline-flex items-center justify-center w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-3 md:py-3.5 px-4 rounded-xl transition-colors group/btn touch-manipulation">
+                <Link to="/contact" className="inline-flex items-center justify-center w-full bg-primary/10 hover:bg-primary text-primary hover:text-white font-semibold py-3 md:py-3.5 px-4 rounded-xl transition-colors group/btn touch-manipulation">
                   Learn More 
                   <ArrowRight size={16} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}
         </div>
         
         <div className="mt-12 text-center">
-          <a href="#contact" className="text-primary font-medium hover:underline inline-flex items-center gap-2 p-2 touch-manipulation">
+          <Link to="/courses" className="text-primary font-medium hover:underline inline-flex items-center gap-2 p-2 touch-manipulation">
             View all courses <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

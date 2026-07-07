@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const benefits = [
@@ -37,9 +38,9 @@ export default function FranchiseSection() {
               ))}
             </div>
 
-            <a href="#contact" className="inline-flex items-center justify-center gap-2 bg-foreground text-background hover:bg-foreground/90 px-8 py-4 rounded-full font-bold transition-all w-full sm:w-auto">
-              Become a Franchise <ArrowRight size={18} />
-            </a>
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-foreground text-background hover:bg-foreground/90 px-8 py-4 rounded-full font-bold transition-all w-full sm:w-auto">
+              Apply for Franchise <ArrowRight size={18} />
+            </Link>
           </motion.div>
           
           <motion.div 

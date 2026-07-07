@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, UserPlus, Building2 } from 'lucide-react';
 
 export default function HeroSection() {
@@ -39,15 +40,15 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
           >
-            <a href="#courses" className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 px-8 py-4 rounded-full text-base font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 group">
+            <Link to="/courses" className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 px-8 py-4 rounded-full text-base font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 group">
               Explore Courses <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="#apply" className="w-full sm:w-auto border-2 border-primary/20 hover:border-primary text-foreground px-8 py-4 rounded-full text-base font-semibold transition-all flex items-center justify-center gap-2 bg-background/50 backdrop-blur-sm">
+            </Link>
+            <Link to="/contact" className="w-full sm:w-auto border-2 border-primary/20 hover:border-primary text-foreground px-8 py-4 rounded-full text-base font-semibold transition-all flex items-center justify-center gap-2 bg-background/50 backdrop-blur-sm">
               <UserPlus size={18} /> Apply for Admission
-            </a>
-            <a href="#franchise" className="w-full sm:w-auto text-muted-foreground hover:text-primary px-4 py-4 font-medium transition-colors flex items-center justify-center gap-2">
+            </Link>
+            <Link to="/franchise" className="w-full sm:w-auto text-muted-foreground hover:text-primary px-4 py-4 font-medium transition-colors flex items-center justify-center gap-2">
               <Building2 size={18} /> Become a Franchise
-            </a>
+            </Link>
           </motion.div>
         </div>
 

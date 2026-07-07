@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Briefcase } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Briefcase, Building, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function PlacementSection() {
   return (
@@ -40,9 +41,9 @@ export default function PlacementSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <a href="#contact" className="inline-flex items-center gap-2 bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-full font-bold transition-all shadow-xl">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-full font-bold transition-all shadow-xl">
               Get Career Guidance <ArrowRight size={18} />
-            </a>
+            </Link>
           </motion.div>
         </div>
         
