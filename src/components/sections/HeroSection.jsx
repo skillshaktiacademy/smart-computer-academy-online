@@ -64,7 +64,7 @@ export default function HeroSection() {
           <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/40 dark:border-white/10 shadow-2xl">
             <img
               src={media.heroShowcase}
-              alt="Students learning at Smart Computer Academy's modern computer lab"
+              alt="A trainer guiding students at computers in Smart Computer Academy's classroom"
               className="w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"

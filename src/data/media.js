@@ -12,9 +12,11 @@ export const unsplash = (id, w = 800, h) =>
 
 // Named images used across the site.
 export const media = {
-  heroShowcase: unsplash('1588072432836-e10032774350', 1000), // computer lab / workstations
+  // Premium hero: a trainer guiding students at computers in a classroom.
+  heroShowcase: unsplash('1778489769184-45868633c527', 1100),
+  // Backup option (computer lab): unsplash('1723987251277-18fc0a1effd0', 1100)
   about: unsplash('1522202176988-66273c2fd55f', 900), // students collaborating
-  classroom: unsplash('1524178232363-1fb2b075b655', 1000), // classroom / lecture
+  classroom: unsplash('1723987251277-18fc0a1effd0', 1000), // students in a computer lab
   placement: unsplash('1552664730-d307ca884978', 900), // team / career
 };
 
