@@ -35,7 +35,7 @@ export const siteInfo = {
   },
 
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1650620701835!2d87.23125332062376!3d25.2650322614215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f0154a17bf9d01%3A0x1ec9d1f1350a40a9!2sSMART%20COMPUTER%20ACADEMY%20Kahalgaon!5e0!3m2!1sen!2sin!4v1783401967579!5m2!1sen!2sin',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230923.4461479938!2d86.92794799804685!3d25.264568475331586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f0154a17bf9d01%3A0x1ec9d1f1350a40a9!2sSMART%20COMPUTER%20ACADEMY%20Kahalgaon!5e0!3m2!1sen!2sin!4v1783439803082!5m2!1sen!2sin',
   mapLink: 'https://maps.app.goo.gl/?q=Smart+Computer+Academy+Kahalgaon',
 
   registrations: [

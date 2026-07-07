@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Navigation } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import { siteInfo } from '../../data/site';
 
@@ -93,6 +93,33 @@ export default function ContactSection() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Google Map */}
+        <div className="mt-10 md:mt-14">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <h3 className="text-xl font-bold flex items-center gap-2">
+              <MapPin size={20} className="text-primary" /> Find Us on the Map
+            </h3>
+            <a
+              href={siteInfo.mapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline touch-manipulation"
+            >
+              <Navigation size={16} /> Get Directions
+            </a>
+          </div>
+          <div className="rounded-3xl overflow-hidden border border-border shadow-sm bg-muted">
+            <iframe
+              title={`${siteInfo.name} location on Google Maps`}
+              src={siteInfo.mapEmbedUrl}
+              className="w-full h-64 sm:h-80 md:h-96 border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
           </div>
         </div>
       </div>
