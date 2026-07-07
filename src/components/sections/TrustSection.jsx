@@ -1,46 +1,51 @@
 import { motion } from 'framer-motion';
-
-const stats = [
-  { value: '1000+', label: 'Students', subtitle: 'Learned & Placed' },
-  { value: '50+', label: 'Professional Courses', subtitle: 'Industry Relevant' },
-  { value: '20+', label: 'Certified Trainers', subtitle: 'Expert Faculty' },
-  { value: '100%', label: 'Practical Learning', subtitle: 'Hands-on Projects' },
-];
+import { siteInfo } from '../../data/site';
+import { ShieldCheck, BadgeCheck } from 'lucide-react';
 
 export default function TrustSection() {
   return (
-    <section className="w-full py-12 md:py-16 bg-muted/30 border-y border-border">
-      <div className="container px-4 md:px-6">
-        <div className="text-center mb-10">
-          <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
-            Trusted By
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-4 text-foreground/60 font-medium">
-            <span>Students</span>
-            <span>•</span>
-            <span>Trainers</span>
-            <span>•</span>
-            <span>Parents</span>
-            <span>•</span>
-            <span>Franchise Owners</span>
-          </div>
+    <section aria-label="Trust signals and certifications" className="w-full py-10 md:py-16 bg-muted/30 border-y border-border">
+      <div className="container px-4 md:px-6 space-y-10">
+
+        {/* Certifications row */}
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
+          {siteInfo.registrations.map((reg, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-2 bg-background border border-border rounded-full px-4 py-2 shadow-sm"
+            >
+              <ShieldCheck size={16} className="text-primary shrink-0" />
+              <span className="text-xs md:text-sm font-medium">{reg.label}</span>
+              {reg.code && (
+                <span className="text-[10px] text-muted-foreground hidden sm:inline">({reg.code})</span>
+              )}
+            </div>
+          ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {siteInfo.stats.map((stat, i) => (
             <motion.div
-              key={index}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col items-center text-center p-4 rounded-xl hover:bg-background/50 transition-colors"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="flex flex-col items-center text-center p-4 rounded-xl hover:bg-background/60 transition-colors"
             >
-              <h3 className="text-4xl md:text-5xl font-bold gradient-text mb-2">{stat.value}</h3>
-              <p className="font-semibold text-lg text-foreground">{stat.label}</p>
-              <p className="text-sm text-muted-foreground">{stat.subtitle}</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-1">{stat.value}</p>
+              <p className="text-sm md:text-base font-semibold text-foreground">{stat.label}</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* DigiLocker highlight */}
+        <div className="flex items-center justify-center gap-2 text-center text-sm text-muted-foreground">
+          <BadgeCheck size={18} className="text-primary shrink-0" />
+          <span>
+            Kahalgaon mein pehli baar — <strong className="text-foreground">DigiLocker Verified Certificate</strong> milti hai Smart Computer Academy mein
+          </span>
         </div>
       </div>
     </section>

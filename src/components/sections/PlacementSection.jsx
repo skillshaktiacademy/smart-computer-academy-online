@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Briefcase, Building, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Briefcase, ArrowRight } from 'lucide-react';
 
 export default function PlacementSection() {
   return (
