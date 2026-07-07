@@ -159,7 +159,7 @@ export default function CoursesPage() {
         <div className="container px-4 md:px-6">
           <SectionHeader
             title={<><span className="gradient-text">Fee Structure</span> — Special Offer</>}
-            subtitle="Kam fees mein best education. पहले आइए, पहले पाइए — Limited Seats!"
+            subtitle="Best education at affordable fees. पहले आइए, पहले पाइए — सीमित सीटें उपलब्ध!"
           />
 
           <div className="overflow-x-auto rounded-2xl border border-border shadow-sm">

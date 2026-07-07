@@ -8,7 +8,7 @@ export const siteInfo = {
   name: 'Smart Computer Academy',
   shortName: 'SCA',
   tagline: 'Learn Computer, Build Your Career',
-  taglineHindi: 'जहाँ सीखें Computer Skill और बनाएं अपना Career Strong',
+  taglineHindi: 'जहाँ सीखें कंप्यूटर स्किल और बनाएं अपना बेहतर करियर',
   motto: 'Your Success, Our Mission',
   director: 'Praveen Sir',
   founderTitle: 'Director & Founder',
@@ -202,73 +202,73 @@ export const siteInfo = {
   features: [
     {
       title: '100% Practical Training',
-      desc: 'Hands-on training (हाथों से सीखना). Live project पर काम करने का मौका',
+      desc: 'Learn by doing with hands-on sessions and live projects. पूरी तरह व्यावहारिक प्रशिक्षण।',
       icon: 'Monitor',
       number: 3,
     },
     {
       title: 'Experienced Faculty',
-      desc: 'Experienced और professional teachers. Practical knowledge और real experience सिखाया जाता है',
+      desc: 'Learn from experienced, professional trainers with real industry knowledge. अनुभवी और प्रशिक्षित शिक्षक।',
       icon: 'GraduationCap',
       number: 2,
     },
     {
       title: 'Job & Placement Support',
-      desc: 'Course के बाद job guidance. Career और freelancing support मिलता है',
+      desc: 'Career guidance, placement help and freelancing support after your course. जॉब और प्लेसमेंट में पूरी मदद।',
       icon: 'Briefcase',
       number: 4,
     },
     {
       title: 'Certificate Facility',
-      desc: 'Course complete होने पर certificate. DigiLocker पर verified certificate मिलती है',
+      desc: 'Get a verified certificate on completion, available on DigiLocker. कोर्स पूरा होने पर मान्य प्रमाणपत्र।',
       icon: 'Award',
       number: 5,
     },
     {
       title: 'Industry-Based Curriculum',
-      desc: 'Market demand के अनुसार course design. IT field के लिए ready बनाता है',
+      desc: 'A curriculum designed around current market demand to make you job-ready. उद्योग-आधारित पाठ्यक्रम।',
       icon: 'Target',
       number: 6,
     },
     {
       title: 'Affordable Fees & Scholarship',
-      desc: 'कम फीस में बेहतरीन शिक्षा. Scholarship / discount की सुविधा',
+      desc: 'Quality education at affordable fees, with scholarships and discounts. कम फीस में बेहतरीन शिक्षा।',
       icon: 'Wallet',
       number: 7,
     },
     {
       title: 'Modern Computer Lab',
-      desc: 'Latest computer और software. Smart classroom facility with scanner',
+      desc: 'Latest computers, software and a smart, well-equipped classroom. आधुनिक कंप्यूटर लैब।',
       icon: 'Cpu',
       number: 8,
     },
     {
       title: 'Flexible Timing',
-      desc: 'Morning / Evening batch. Students के time के अनुसार classes',
+      desc: 'Morning and evening batches that fit your schedule. आपके समय के अनुसार — सुबह या शाम की क्लास।',
       icon: 'Clock',
       number: 9,
     },
     {
       title: 'Freelancing & Online Earning',
-      desc: 'घर बैठे earning का मौका. Digital skills develop होती है',
+      desc: 'Build digital skills and earn online from home. घर बैठे ऑनलाइन कमाई का मौका।',
       icon: 'Globe',
       number: 10,
     },
     {
       title: 'Professional Courses',
-      desc: 'ADCA, DCA, Tally, Graphic Design, Web Development जैसे कई course. Beginner से Advanced level तक training',
+      desc: 'Courses like ADCA, DCA, Tally, Graphic Design and Web Development, from beginner to advanced. शुरुआत से एडवांस तक प्रशिक्षण।',
       icon: 'BookOpen',
       number: 1,
     },
     {
       title: 'DigiLocker Certificate',
-      desc: 'Kahalgaon में पहली बार — DigiLocker पर अपना verified certificate. Back Date Certificate की भी सुविधा',
+      desc: 'A first in Kahalgaon — your verified certificate on DigiLocker, with back-date facility too. कहलगांव में पहली बार।',
       icon: 'Shield',
       number: 11,
     },
     {
       title: 'Friendly Environment',
-      desc: 'Students को full support. Doubt clear करने की सुविधा हमेशा उपलब्ध',
+      desc: 'Full support and a friendly space to clear every doubt. दोस्ताना माहौल और पूरा सहयोग।',
       icon: 'Heart',
       number: 12,
     },
@@ -276,7 +276,7 @@ export const siteInfo = {
 
   // Franchise details from images
   franchise: {
-    tagline: 'Agar aap bhi Computer Center kholna chahte hai to Franchise ke liye sampark karen',
+    tagline: 'Want to open your own computer training centre? Contact us to become a franchise partner. अपना कंप्यूटर सेंटर खोलें।',
     headOffice: 'Head Office: SSV Road, Kahalgaon',
     benefits: [
       'Brand Support & Recognition',

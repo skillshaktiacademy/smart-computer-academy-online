@@ -18,7 +18,7 @@ const featuresList = [
 
 export default function FeaturesSection() {
   return (
-    <section className="w-full py-20 md:py-32 bg-background">
+    <section className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
         <SectionHeader 
           title={<>Modern <span className="gradient-text">Digital Infrastructure</span></>} 

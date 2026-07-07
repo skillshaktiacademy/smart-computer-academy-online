@@ -12,15 +12,15 @@ export default function HeroSection() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[40%] rounded-full bg-secondary/20 blur-[60px] md:blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
       
-      <div className="container px-4 md:px-6 relative z-10 flex flex-col lg:flex-row items-center gap-12">
-        
+      <div className="container px-4 md:px-6 relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+
         {/* Text Content */}
-        <div className="flex-1 text-center lg:text-left space-y-8 mt-12 lg:mt-0">
-          <motion.h1 
+        <div className="flex-1 text-center lg:text-left space-y-6 md:space-y-8 mt-8 lg:mt-0">
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]"
           >
             Build Your <span className="gradient-text">Digital Career</span> <br className="hidden md:block"/>
             with Smart Computer Academy

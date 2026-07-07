@@ -22,7 +22,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full py-20 md:py-32 bg-background">
+    <section className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6 max-w-4xl">
         <SectionHeader 
           title={<>Frequently Asked <span className="gradient-text">Questions</span></>} 
@@ -57,7 +57,7 @@ export default function FAQSection() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-4 pt-0 text-muted-foreground border-t border-border mt-2 pt-4">
+                    <div className="px-6 pb-4 text-muted-foreground border-t border-border mt-2 pt-4">
                       {faq.a}
                     </div>
                   </motion.div>

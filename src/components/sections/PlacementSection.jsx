@@ -4,7 +4,7 @@ import { Briefcase, ArrowRight } from 'lucide-react';
 
 export default function PlacementSection() {
   return (
-    <section className="w-full py-20 md:py-32 bg-primary text-white relative overflow-hidden">
+    <section className="w-full py-16 md:py-24 bg-primary text-white relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-32 hidden lg:block"></div>
       

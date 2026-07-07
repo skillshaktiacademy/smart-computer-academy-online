@@ -12,7 +12,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="w-full py-20 md:py-32 bg-background relative">
+    <section id="about" className="w-full py-16 md:py-24 bg-background relative">
       <div className="container px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           

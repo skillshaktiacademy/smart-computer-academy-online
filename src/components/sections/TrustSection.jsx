@@ -44,7 +44,7 @@ export default function TrustSection() {
         <div className="flex items-center justify-center gap-2 text-center text-sm text-muted-foreground">
           <BadgeCheck size={18} className="text-primary shrink-0" />
           <span>
-            Kahalgaon mein pehli baar — <strong className="text-foreground">DigiLocker Verified Certificate</strong> milti hai Smart Computer Academy mein
+            A first in Kahalgaon — get your <strong className="text-foreground">DigiLocker Verified Certificate</strong> at Smart Computer Academy. कहलगांव में पहली बार।
           </span>
         </div>
       </div>
