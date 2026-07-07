@@ -1,6 +1,8 @@
 import HeroSection from '../components/sections/HeroSection';
+import BannerSlider from '../components/sections/BannerSlider';
 import TrustSection from '../components/sections/TrustSection';
 import AboutSection from '../components/sections/AboutSection';
+import DirectorSection from '../components/sections/DirectorSection';
 import CoursesSection from '../components/sections/CoursesSection';
 import WhyChooseUsSection from '../components/sections/WhyChooseUsSection';
 import ProcessSection from '../components/sections/ProcessSection';
@@ -14,8 +16,10 @@ export default function LandingPage() {
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
       <HeroSection />
+      <BannerSlider />
       <TrustSection />
       <AboutSection />
+      <DirectorSection />
       <CoursesSection />
       <WhyChooseUsSection />
       <ProcessSection />
