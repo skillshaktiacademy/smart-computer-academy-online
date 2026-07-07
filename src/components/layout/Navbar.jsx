@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, MonitorPlay } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
+import logo from '../../assets/Logo/sca-logo-256.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,11 +32,17 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="bg-primary text-white p-2 rounded-lg group-hover:scale-105 transition-transform">
-            <MonitorPlay size={24} />
-          </div>
-          <span className="text-xl font-bold tracking-tight">Smart Computer<br/><span className="text-primary text-sm leading-none">Academy</span></span>
+        <Link to="/" className="flex items-center gap-2 group shrink-0">
+          <img
+            src={logo}
+            alt="Smart Computer Academy logo"
+            width={40}
+            height={40}
+            className="h-9 w-9 sm:h-10 sm:w-10 object-contain group-hover:scale-105 transition-transform"
+          />
+          <span className="text-base sm:text-xl font-bold tracking-tight leading-none">
+            Smart Computer<br /><span className="text-primary text-xs sm:text-sm leading-none">Academy</span>
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -48,6 +56,7 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
+          <ThemeToggle />
           <a
             href="#apply"
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2.5 rounded-full text-sm font-medium transition-colors shadow-lg shadow-primary/20 hover:shadow-primary/40"
@@ -57,12 +66,17 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Toggle */}
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            className="p-2 text-foreground"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

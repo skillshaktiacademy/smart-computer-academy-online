@@ -3,25 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#020817" media="(prefers-color-scheme: dark)" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Smart Computer Academy | Build Your Digital Career</title>
-    <meta name="description" content="Join India's growing computer education network. Learn industry-ready skills with DCA, ADCA, Tally Prime, Web Development. 100% placement assistance and franchise opportunities available." />
+    <meta name="description" content="Smart Computer Academy, Kahalgaon (ISO 9001:2015 Certified) offers ADCA, DCA, Tally Prime, Web Development and more. 100% practical training and placement assistance. Admission open." />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('sca-theme');
+          var theme = stored === 'light' || stored === 'dark'
+            ? stored
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          if (theme === 'dark') document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://smartcomputeracademy.com/" />
     <meta property="og:title" content="Smart Computer Academy | Build Your Digital Career" />
-    <meta property="og:description" content="Join India's growing computer education network. Learn industry-ready skills, earn certified qualifications, and build a successful career in IT." />
+    <meta property="og:description" content="ISO 9001:2015 certified computer institute in Kahalgaon. ADCA, DCA, Tally Prime, Web Development & more with 100% practical training and placement assistance." />
     <meta property="og:image" content="https://smartcomputeracademy.com/og-image.jpg" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://smartcomputeracademy.com/" />
     <meta property="twitter:title" content="Smart Computer Academy | Build Your Digital Career" />
-    <meta property="twitter:description" content="Join India's growing computer education network. Learn industry-ready skills, earn certified qualifications, and build a successful career in IT." />
+    <meta property="twitter:description" content="ISO 9001:2015 certified computer institute in Kahalgaon. ADCA, DCA, Tally Prime, Web Development & more with 100% practical training and placement assistance." />
     <meta property="twitter:image" content="https://smartcomputeracademy.com/twitter-image.jpg" />
 
     <!-- Canonical URL -->
@@ -38,13 +51,12 @@
           "name": "Smart Computer Academy",
           "url": "https://smartcomputeracademy.com",
           "logo": "https://smartcomputeracademy.com/logo.png",
-          "description": "India's leading computer education network.",
+          "description": "ISO 9001:2015 certified computer training institute in Kahalgaon offering ADCA, DCA, Tally Prime, Web Development and more, with 100% practical training and placement assistance.",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Tech Park, Phase 1",
-            "addressLocality": "New Delhi",
-            "addressRegion": "Delhi",
-            "postalCode": "110001",
+            "streetAddress": "1st Floor, S.S.V. College Road, Near STS Coaching",
+            "addressLocality": "Kahalgaon",
+            "addressRegion": "Bihar",
             "addressCountry": "IN"
           }
         },
@@ -53,8 +65,15 @@
           "parentOrganization": {
              "@id": "https://smartcomputeracademy.com/#organization"
           },
-          "name": "Smart Computer Academy New Delhi",
-          "telephone": "+919876543210"
+          "name": "Smart Computer Academy Kahalgaon",
+          "telephone": "+919905788324",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1st Floor, S.S.V. College Road, Near STS Coaching",
+            "addressLocality": "Kahalgaon",
+            "addressRegion": "Bihar",
+            "addressCountry": "IN"
+          }
         }
       ]
     }

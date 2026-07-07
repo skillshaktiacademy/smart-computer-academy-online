@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MonitorPlay, Globe, MapPin, Phone, Mail } from 'lucide-react';
+import { siteInfo } from '../../data/site';
 
 export default function Footer() {
   return (
@@ -9,67 +10,71 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 group text-white">
-              <div className="bg-primary text-white p-2 rounded-lg">
+              <div className="bg-primary text-white p-2 md:p-2.5 rounded-lg">
                 <MonitorPlay size={24} />
               </div>
-              <span className="text-xl font-bold tracking-tight">Smart Computer<br/><span className="text-primary text-sm leading-none">Academy</span></span>
+              <span className="text-lg md:text-xl font-bold tracking-tight">{siteInfo.name}</span>
             </Link>
-            <p className="text-sm mt-4 text-slate-400">
-              India's leading computer education network. Empowering students with industry-ready skills for a successful career.
+            <p className="text-sm mt-4 text-slate-400 leading-relaxed">
+              {siteInfo.tagline}
+              <br/>
+              An ISO 9001:2015 Certified Institute.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="#" className="hover:text-primary transition-colors"><Globe size={20} /></a>
-              <a href="#" className="hover:text-primary transition-colors"><Globe size={20} /></a>
-              <a href="#" className="hover:text-primary transition-colors"><Globe size={20} /></a>
-              <a href="#" className="hover:text-primary transition-colors"><Globe size={20} /></a>
+              <a href={siteInfo.social.facebook} className="p-2 -ml-2 text-slate-400 hover:text-primary transition-colors touch-manipulation"><Globe size={20} /></a>
+              <a href={siteInfo.social.instagram} className="p-2 text-slate-400 hover:text-primary transition-colors touch-manipulation"><Globe size={20} /></a>
+              <a href={siteInfo.social.youtube} className="p-2 text-slate-400 hover:text-primary transition-colors touch-manipulation"><Globe size={20} /></a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#courses" className="hover:text-primary transition-colors">All Courses</a></li>
-              <li><a href="#franchise" className="hover:text-primary transition-colors">Become a Franchise</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Verify Certificate</a></li>
+            <ul className="space-y-1">
+              <li><a href="#courses" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">All Courses</a></li>
+              <li><a href="#franchise" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Become a Franchise</a></li>
+              <li><a href="#about" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#contact" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Legal</h3>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Refund Policy</a></li>
+            <ul className="space-y-1">
+              <li><a href="#" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Refund Policy</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Contact Info</h3>
-            <ul className="space-y-4 text-sm">
+            <ul className="space-y-4 text-sm text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin className="text-primary shrink-0 mt-0.5" size={18} />
-                <span>123 Tech Park, Phase 1, New Delhi, India 110001</span>
+                <span className="leading-relaxed">{siteInfo.address.full}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-primary shrink-0" size={18} />
-                <span>+91 98765 43210</span>
+                <a href={`tel:${siteInfo.phoneRaw}`} className="hover:text-primary transition-colors">{siteInfo.phone}</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-primary shrink-0" size={18} />
-                <span>info@smartcomputeracademy.com</span>
+                <a href={`mailto:${siteInfo.email}`} className="hover:text-primary transition-colors break-all">{siteInfo.email}</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Smart Computer Academy. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Designed for Excellence</p>
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500 gap-4 text-center md:text-left">
+          <p>&copy; {new Date().getFullYear()} {siteInfo.name}. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+             <p>Director: {siteInfo.director}</p>
+             <p className="hidden sm:block">•</p>
+             <p className="text-xs">{siteInfo.registrations.map(r => r.code).filter(Boolean).join(' | ')}</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -52,23 +52,23 @@ export default function PlacementSection() {
           viewport={{ once: true }}
           className="flex-1 w-full max-w-md"
         >
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl">
-             <div className="flex flex-col gap-6">
-               <div className="bg-white p-4 rounded-xl flex items-center gap-4">
-                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl">1</div>
-                 <div className="text-slate-900 font-semibold">Skill Training</div>
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-8 rounded-3xl shadow-2xl overflow-hidden">
+             <div className="flex flex-col gap-4 sm:gap-6">
+               <div className="bg-white p-3 sm:p-4 rounded-xl flex items-center gap-3 sm:gap-4">
+                 <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg sm:text-xl">1</div>
+                 <div className="text-slate-900 font-semibold text-sm sm:text-base">Skill Training</div>
                </div>
-               <div className="bg-white p-4 rounded-xl flex items-center gap-4 ml-8">
-                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">2</div>
-                 <div className="text-slate-900 font-semibold">Resume Building</div>
+               <div className="bg-white p-3 sm:p-4 rounded-xl flex items-center gap-3 sm:gap-4 ml-3 sm:ml-8">
+                 <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg sm:text-xl">2</div>
+                 <div className="text-slate-900 font-semibold text-sm sm:text-base">Resume Building</div>
                </div>
-               <div className="bg-white p-4 rounded-xl flex items-center gap-4 ml-16">
-                 <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-xl">3</div>
-                 <div className="text-slate-900 font-semibold">Mock Interviews</div>
+               <div className="bg-white p-3 sm:p-4 rounded-xl flex items-center gap-3 sm:gap-4 ml-6 sm:ml-16">
+                 <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-lg sm:text-xl">3</div>
+                 <div className="text-slate-900 font-semibold text-sm sm:text-base">Mock Interviews</div>
                </div>
-               <div className="bg-white p-4 rounded-xl flex items-center gap-4 ml-24">
-                 <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl">4</div>
-                 <div className="text-slate-900 font-semibold">Job Placement</div>
+               <div className="bg-white p-3 sm:p-4 rounded-xl flex items-center gap-3 sm:gap-4 ml-9 sm:ml-24">
+                 <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg sm:text-xl">4</div>
+                 <div className="text-slate-900 font-semibold text-sm sm:text-base">Job Placement</div>
                </div>
              </div>
           </div>

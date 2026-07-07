@@ -6,8 +6,8 @@ export default function HeroSection() {
     <section className="relative w-full min-h-[90vh] pt-24 pb-12 flex flex-col items-center justify-center overflow-hidden bg-background">
       {/* Animated Background Gradients */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/20 blur-[100px] animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/20 blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[40%] rounded-full bg-primary/20 blur-[60px] md:blur-[100px] animate-pulse"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[40%] rounded-full bg-secondary/20 blur-[60px] md:blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
       
       <div className="container px-4 md:px-6 relative z-10 flex flex-col lg:flex-row items-center gap-12">
