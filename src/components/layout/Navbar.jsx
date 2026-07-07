@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import logo from '../../assets/Logo/sca-logo-256.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,10 +20,10 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Courses', path: '#courses' },
-    { name: 'About', path: '#about' },
-    { name: 'Franchise', path: '#franchise' },
-    { name: 'Contact', path: '#contact' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'About', path: '/about' },
+    { name: 'Franchise', path: '/franchise' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -48,21 +49,21 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.path}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              to={link.path}
+              className={`text-sm font-medium transition-colors ${location.pathname === link.path ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
           <ThemeToggle />
-          <a
-            href="#apply"
+          <Link
+            to="/contact"
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2.5 rounded-full text-sm font-medium transition-colors shadow-lg shadow-primary/20 hover:shadow-primary/40"
           >
             Apply Now
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Toggle */}
@@ -89,22 +90,22 @@ export default function Navbar() {
             className="absolute top-full left-0 w-full glassmorphism border-t border-border/50 py-4 px-4 flex flex-col gap-4 md:hidden"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.path}
-                className="text-lg font-medium p-2 text-foreground/80 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+                to={link.path}
+                className={`text-lg font-medium p-2 rounded-md transition-colors ${location.pathname === link.path ? 'text-primary bg-primary/10' : 'text-foreground/80 hover:text-primary hover:bg-muted/50'}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#apply"
+            <Link
+              to="/contact"
               className="bg-primary text-primary-foreground text-center py-3 rounded-md font-medium mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Apply Now
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

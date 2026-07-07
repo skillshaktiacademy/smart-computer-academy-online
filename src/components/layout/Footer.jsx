@@ -31,10 +31,11 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-1">
-              <li><a href="#courses" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">All Courses</a></li>
-              <li><a href="#franchise" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Become a Franchise</a></li>
-              <li><a href="#about" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#contact" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Contact Us</a></li>
+              <li><Link to="/courses" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">All Courses</Link></li>
+              <li><Link to="/franchise" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Become a Franchise</Link></li>
+              <li><Link to="/about" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Contact Us</Link></li>
+              <li><Link to="/verify-certificate" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Verify Certificate</Link></li>
             </ul>
           </div>
 
@@ -42,9 +43,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Legal</h3>
             <ul className="space-y-1">
-              <li><a href="#" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Refund Policy</a></li>
+              <li><Link to="/privacy" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link to="/refund" className="block py-2 text-sm text-slate-400 hover:text-primary transition-colors">Refund Policy</Link></li>
             </ul>
           </div>
 

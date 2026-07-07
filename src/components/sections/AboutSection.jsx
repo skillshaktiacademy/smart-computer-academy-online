@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import SectionHeader from '../ui/SectionHeader';
 import { CheckCircle2 } from 'lucide-react';
 
 export default function AboutSection() {
