@@ -3,18 +3,18 @@ import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   User,
-  Building2,
+  Users,
   Phone,
   MessageCircle,
   Mail,
-  CreditCard,
+  Calendar,
+  CircleUser,
+  GraduationCap,
+  BookOpen,
+  CalendarClock,
   MapPin,
   Map,
   Hash,
-  Monitor,
-  Users,
-  Ruler,
-  GraduationCap,
   Clock,
   Megaphone,
   MessageSquare,
@@ -24,12 +24,15 @@ import {
   Send,
 } from 'lucide-react';
 import {
-  FRANCHISE_ENDPOINT,
+  ADMISSION_ENDPOINT,
   initialValues,
-  existingInstituteOptions,
+  genderOptions,
+  qualificationOptions,
+  preferredBatchOptions,
   preferredContactTimeOptions,
   heardFromOptions,
-} from '../../data/franchiseForm';
+} from '../../data/admissionForm';
+import { siteInfo } from '../../data/site';
 
 const inputBase =
   'w-full rounded-lg border border-input bg-background pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors disabled:opacity-60';
@@ -62,7 +65,7 @@ function Field({ icon: Icon, label, htmlFor, required, error, children, hint }) 
   );
 }
 
-export default function FranchiseEnquiryForm() {
+export default function AdmissionEnquiryForm() {
   const {
     register,
     handleSubmit,
@@ -79,7 +82,7 @@ export default function FranchiseEnquiryForm() {
       // text/plain keeps this a "simple request" and avoids a CORS preflight
       // that Apps Script web apps cannot answer. Response is opaque under
       // no-cors, so a resolved request is treated as a successful capture.
-      await fetch(FRANCHISE_ENDPOINT, {
+      await fetch(ADMISSION_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -89,13 +92,12 @@ export default function FranchiseEnquiryForm() {
       reset(initialValues);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
-      console.error('Franchise enquiry submission failed:', err);
+      console.error('Admission enquiry submission failed:', err);
       setStatus('error');
     }
   };
 
-  const selectClass = (hasError) =>
-    `${inputBase} appearance-none ${hasError ? inputError : ''}`;
+  const selectClass = (hasError) => `${inputBase} appearance-none ${hasError ? inputError : ''}`;
   const fieldClass = (hasError) => `${inputBase} ${hasError ? inputError : ''}`;
 
   return (
@@ -111,9 +113,9 @@ export default function FranchiseEnquiryForm() {
           >
             <CheckCircle2 className="shrink-0 mt-0.5" size={20} />
             <div>
-              <p className="font-semibold">Enquiry submitted successfully!</p>
+              <p className="font-semibold">Admission enquiry submitted successfully!</p>
               <p className="text-sm opacity-90">
-                Thank you for your interest. Our franchise team will contact you soon.
+                Thank you. Our admission team will contact you shortly with the next steps.
               </p>
             </div>
           </motion.div>
@@ -130,8 +132,8 @@ export default function FranchiseEnquiryForm() {
               <p className="font-semibold">Something went wrong.</p>
               <p className="text-sm opacity-90">
                 Please try again, or call us directly at{' '}
-                <a href="tel:919905788324" className="font-semibold underline">
-                  9905788324
+                <a href={`tel:${siteInfo.phoneRaw}`} className="font-semibold underline">
+                  {siteInfo.phone}
                 </a>
                 .
               </p>
@@ -141,26 +143,88 @@ export default function FranchiseEnquiryForm() {
       </AnimatePresence>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
-        {/* Card 1: Contact details */}
+        {/* Card 1: Student details */}
         <div className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <User size={20} />
             </div>
+            <h3 className="text-lg font-bold">Student Details</h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Field icon={User} label="Student Name" htmlFor="studentName" required error={errors.studentName}>
+              <input
+                id="studentName"
+                type="text"
+                placeholder="Full name"
+                className={fieldClass(errors.studentName)}
+                {...register('studentName', { required: 'Please enter the student name' })}
+              />
+            </Field>
+
+            <Field icon={Users} label="Father / Guardian Name" htmlFor="guardianName" error={errors.guardianName}>
+              <input
+                id="guardianName"
+                type="text"
+                placeholder="Parent / guardian name"
+                className={fieldClass(errors.guardianName)}
+                {...register('guardianName')}
+              />
+            </Field>
+
+            <Field icon={Calendar} label="Date of Birth" htmlFor="dateOfBirth" error={errors.dateOfBirth}>
+              <input
+                id="dateOfBirth"
+                type="date"
+                className={fieldClass(errors.dateOfBirth)}
+                {...register('dateOfBirth')}
+              />
+            </Field>
+
+            <Field icon={CircleUser} label="Gender" htmlFor="gender" error={errors.gender}>
+              <select id="gender" className={selectClass(errors.gender)} {...register('gender')}>
+                <option value="">Select</option>
+                {genderOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </Field>
+
+            <Field
+              icon={GraduationCap}
+              label="Highest Qualification"
+              htmlFor="qualification"
+              error={errors.qualification}
+            >
+              <select
+                id="qualification"
+                className={selectClass(errors.qualification)}
+                {...register('qualification')}
+              >
+                <option value="">Select</option>
+                {qualificationOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          </div>
+        </div>
+
+        {/* Card 2: Contact details */}
+        <div className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <Phone size={20} />
+            </div>
             <h3 className="text-lg font-bold">Contact Details</h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field icon={User} label="Contact Person" htmlFor="contactPerson" required error={errors.contactPerson}>
-              <input
-                id="contactPerson"
-                type="text"
-                placeholder="Full name"
-                className={fieldClass(errors.contactPerson)}
-                {...register('contactPerson', { required: 'Please enter your name' })}
-              />
-            </Field>
-
             <Field icon={Phone} label="Mobile Number" htmlFor="mobile" required error={errors.mobile}>
               <input
                 id="mobile"
@@ -188,135 +252,67 @@ export default function FranchiseEnquiryForm() {
               />
             </Field>
 
-            <Field icon={Mail} label="Email Address" htmlFor="email" error={errors.email}>
-              <input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                className={fieldClass(errors.email)}
-                {...register('email', {
-                  pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email address' },
-                })}
-              />
-            </Field>
-
-            <Field
-              icon={CreditCard}
-              label="Aadhar Number"
-              htmlFor="aadharNumber"
-              error={errors.aadharNumber}
-              hint="Optional — 12 digits"
-            >
-              <input
-                id="aadharNumber"
-                type="text"
-                inputMode="numeric"
-                placeholder="XXXX XXXX XXXX"
-                className={fieldClass(errors.aadharNumber)}
-                {...register('aadharNumber', {
-                  pattern: { value: /^\d{12}$/, message: 'Aadhar must be 12 digits' },
-                })}
-              />
-            </Field>
+            <div className="sm:col-span-2">
+              <Field icon={Mail} label="Email Address" htmlFor="email" error={errors.email}>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  className={fieldClass(errors.email)}
+                  {...register('email', {
+                    pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email address' },
+                  })}
+                />
+              </Field>
+            </div>
           </div>
         </div>
 
-        {/* Card 2: Institute details */}
+        {/* Card 3: Course selection */}
         <div className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-              <Building2 size={20} />
+              <BookOpen size={20} />
             </div>
-            <h3 className="text-lg font-bold">Institute Details</h3>
+            <h3 className="text-lg font-bold">Course Selection</h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field icon={Building2} label="Institute Name" htmlFor="instituteName" error={errors.instituteName}>
-              <input
-                id="instituteName"
-                type="text"
-                placeholder="Proposed / existing name"
-                className={fieldClass(errors.instituteName)}
-                {...register('instituteName')}
-              />
+            <Field icon={BookOpen} label="Interested Course" htmlFor="interestedCourse" required error={errors.interestedCourse}>
+              <select
+                id="interestedCourse"
+                className={selectClass(errors.interestedCourse)}
+                {...register('interestedCourse', { required: 'Please select a course' })}
+              >
+                <option value="">Select a course</option>
+                {siteInfo.courses.map((c) => (
+                  <option key={c.name} value={c.name}>
+                    {c.name}
+                    {c.fullName ? ` — ${c.fullName}` : ''}
+                  </option>
+                ))}
+                <option value="Not Sure / Need Guidance">Not Sure / Need Guidance</option>
+              </select>
             </Field>
 
-            <Field
-              icon={GraduationCap}
-              label="Do you run an institute already?"
-              htmlFor="existingInstitute"
-              error={errors.existingInstitute}
-            >
+            <Field icon={CalendarClock} label="Preferred Batch" htmlFor="preferredBatch" error={errors.preferredBatch}>
               <select
-                id="existingInstitute"
-                className={selectClass(errors.existingInstitute)}
-                {...register('existingInstitute')}
+                id="preferredBatch"
+                className={selectClass(errors.preferredBatch)}
+                {...register('preferredBatch')}
               >
                 <option value="">Select</option>
-                {existingInstituteOptions.map((opt) => (
+                {preferredBatchOptions.map((opt) => (
                   <option key={opt} value={opt}>
                     {opt}
                   </option>
                 ))}
               </select>
             </Field>
-
-            <Field icon={Monitor} label="Total Computers" htmlFor="totalComputers" error={errors.totalComputers}>
-              <input
-                id="totalComputers"
-                type="number"
-                min="0"
-                placeholder="e.g. 10"
-                className={fieldClass(errors.totalComputers)}
-                {...register('totalComputers', { min: { value: 0, message: 'Cannot be negative' } })}
-              />
-            </Field>
-
-            <Field icon={Users} label="Total Staff" htmlFor="totalStaff" error={errors.totalStaff}>
-              <input
-                id="totalStaff"
-                type="number"
-                min="0"
-                placeholder="e.g. 3"
-                className={fieldClass(errors.totalStaff)}
-                {...register('totalStaff', { min: { value: 0, message: 'Cannot be negative' } })}
-              />
-            </Field>
-
-            <Field
-              icon={Ruler}
-              label="Institute Area"
-              htmlFor="instituteArea"
-              error={errors.instituteArea}
-              hint="Approx. area, e.g. 500 sq ft"
-            >
-              <input
-                id="instituteArea"
-                type="text"
-                placeholder="e.g. 500 sq ft"
-                className={fieldClass(errors.instituteArea)}
-                {...register('instituteArea')}
-              />
-            </Field>
-
-            <Field
-              icon={GraduationCap}
-              label="Interested Courses"
-              htmlFor="interestedCourses"
-              error={errors.interestedCourses}
-            >
-              <input
-                id="interestedCourses"
-                type="text"
-                placeholder="e.g. ADCA, DCA, Tally"
-                className={fieldClass(errors.interestedCourses)}
-                {...register('interestedCourses')}
-              />
-            </Field>
           </div>
         </div>
 
-        {/* Card 3: Location */}
+        {/* Card 4: Location */}
         <div className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -331,7 +327,7 @@ export default function FranchiseEnquiryForm() {
                 <input
                   id="address"
                   type="text"
-                  placeholder="Street / area"
+                  placeholder="Street / area / village"
                   className={fieldClass(errors.address)}
                   {...register('address')}
                 />
@@ -342,7 +338,7 @@ export default function FranchiseEnquiryForm() {
               <input
                 id="city"
                 type="text"
-                placeholder="e.g. Bhagalpur"
+                placeholder="e.g. Kahalgaon"
                 className={fieldClass(errors.city)}
                 {...register('city', { required: 'Please enter your city' })}
               />
@@ -373,7 +369,7 @@ export default function FranchiseEnquiryForm() {
           </div>
         </div>
 
-        {/* Card 4: Additional info */}
+        {/* Card 5: Additional info */}
         <div className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -399,11 +395,7 @@ export default function FranchiseEnquiryForm() {
             </Field>
 
             <Field icon={Megaphone} label="How did you hear about us?" htmlFor="heardFrom" error={errors.heardFrom}>
-              <select
-                id="heardFrom"
-                className={selectClass(errors.heardFrom)}
-                {...register('heardFrom')}
-              >
+              <select id="heardFrom" className={selectClass(errors.heardFrom)} {...register('heardFrom')}>
                 <option value="">Select</option>
                 {heardFromOptions.map((opt) => (
                   <option key={opt} value={opt}>
@@ -420,7 +412,7 @@ export default function FranchiseEnquiryForm() {
               <textarea
                 id="additionalMessage"
                 rows={4}
-                placeholder="Anything else you'd like to tell us?"
+                placeholder="Any questions or details you'd like to share?"
                 className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
                 {...register('additionalMessage')}
               />
@@ -441,13 +433,13 @@ export default function FranchiseEnquiryForm() {
               </>
             ) : (
               <>
-                <Send size={18} /> Submit Franchise Enquiry
+                <Send size={18} /> Submit Admission Enquiry
               </>
             )}
           </button>
           <p className="text-xs text-muted-foreground text-center sm:text-left">
             Fields marked <span className="text-red-500">*</span> are required. Your details are shared only
-            with our franchise team.
+            with our admission team.
           </p>
         </div>
       </form>

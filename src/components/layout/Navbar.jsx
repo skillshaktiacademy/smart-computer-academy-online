@@ -59,7 +59,7 @@ export default function Navbar() {
           ))}
           <ThemeToggle />
           <Link
-            to="/contact"
+            to="/admission"
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2.5 rounded-full text-sm font-medium transition-colors shadow-lg shadow-primary/20 hover:shadow-primary/40"
           >
             Apply Now
@@ -100,7 +100,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/admission"
               className="bg-primary text-primary-foreground text-center py-3 rounded-md font-medium mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >

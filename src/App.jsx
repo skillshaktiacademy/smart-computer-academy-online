@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import CoursesPage from './pages/CoursesPage';
 import AboutPage from './pages/AboutPage';
 import FranchisePage from './pages/FranchisePage';
+import AdmissionPage from './pages/AdmissionPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
 import VerifyCertificatePage from './pages/VerifyCertificatePage';
@@ -17,6 +18,7 @@ function App() {
           <Route path="courses" element={<CoursesPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="franchise" element={<FranchisePage />} />
+          <Route path="admission" element={<AdmissionPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="verify-certificate" element={<VerifyCertificatePage />} />
           <Route path="privacy" element={<LegalPage title="Privacy Policy" />} />

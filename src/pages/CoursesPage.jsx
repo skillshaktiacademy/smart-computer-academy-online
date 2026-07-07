@@ -184,7 +184,7 @@ export default function CoursesPage() {
           {/* CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <Link
-              to="/contact"
+              to="/admission"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-lg shadow-primary/20 touch-manipulation"
             >
               Admission Open — Apply Now <ArrowRight size={16} />

@@ -1,104 +1,68 @@
 /**
  * Smart Computer Academy — Franchise Enquiry backend.
- *
- * Stores each submission from the website's Franchise Enquiry Form as a row
- * in the "SCA Franchise" Google Sheet.
+ * Stores each website submission as a row in the "SCA Franchise" Google Sheet.
  *
  * SETUP
- * 1. Open the target Google Spreadsheet (or create one).
+ * 1. Open the Google Spreadsheet that has a sheet/tab named "SCA Franchise".
  * 2. Extensions → Apps Script, paste this file.
- * 3. Deploy → New deployment → type "Web app".
+ * 3. Deploy → New deployment → type "Web app"
  *      - Execute as: Me
  *      - Who has access: Anyone
  * 4. Copy the /exec URL into src/data/franchiseForm.js (FRANCHISE_ENDPOINT).
  *
- * The frontend sends a JSON body with Content-Type: text/plain (a "simple"
- * CORS request), so we parse e.postData.contents. A form-encoded fallback is
- * also handled for convenience/testing.
+ * The website posts a JSON body (Content-Type: text/plain, a "simple" CORS
+ * request), so we read e.postData.contents. Column order below matches the
+ * form fields in src/data/franchiseForm.js exactly.
  */
 
-var SHEET_NAME = 'SCA Franchise';
-
-// Column order — keep in sync with initialValues in src/data/franchiseForm.js.
-var FIELDS = [
-  'contactPerson',
-  'instituteName',
-  'mobile',
-  'whatsapp',
-  'email',
-  'aadharNumber',
-  'address',
-  'city',
-  'state',
-  'pincode',
-  'totalComputers',
-  'totalStaff',
-  'instituteArea',
-  'existingInstitute',
-  'interestedCourses',
-  'preferredContactTime',
-  'heardFrom',
-  'additionalMessage',
-];
-
 function doPost(e) {
-  var lock = LockService.getScriptLock();
-  lock.tryLock(30000);
-  try {
-    var data = parseBody(e);
-    var sheet = getSheet();
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("SCA Franchise");
+  var data = JSON.parse(e.postData.contents);
 
-    var row = [new Date()];
-    for (var i = 0; i < FIELDS.length; i++) {
-      row.push(data[FIELDS[i]] || '');
-    }
-    sheet.appendRow(row);
-
-    return jsonResponse({ success: true });
-  } catch (err) {
-    return jsonResponse({ success: false, error: String(err) });
-  } finally {
-    lock.releaseLock();
+  // Add a header row the first time (optional, keeps the sheet readable).
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow([
+      "Timestamp", "Contact Person", "Institute Name", "Mobile", "WhatsApp",
+      "Email", "Aadhar Number", "Address", "City", "State", "Pincode",
+      "Total Computers", "Total Staff", "Institute Area", "Existing Institute",
+      "Interested Courses", "Preferred Contact Time", "Heard From", "Additional Message"
+    ]);
   }
+
+  sheet.appendRow([
+    new Date(),
+    data.contactPerson,
+    data.instituteName,
+    data.mobile,
+    data.whatsapp,
+    data.email,
+    data.aadharNumber,
+    data.address,
+    data.city,
+    data.state,
+    data.pincode,
+    data.totalComputers,
+    data.totalStaff,
+    data.instituteArea,
+    data.existingInstitute,
+    data.interestedCourses,
+    data.preferredContactTime,
+    data.heardFrom,
+    data.additionalMessage
+  ]);
+
+  return ContentService
+    .createTextOutput(
+      JSON.stringify({
+        success: true,
+        message: "Enquiry Submitted Successfully"
+      })
+    )
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 function doGet() {
-  // Simple health check.
-  return jsonResponse({ success: true, message: 'SCA Franchise endpoint is live.' });
-}
-
-function parseBody(e) {
-  if (e && e.postData && e.postData.contents) {
-    try {
-      return JSON.parse(e.postData.contents);
-    } catch (ignore) {
-      // Not JSON — fall through to form params.
-    }
-  }
-  return (e && e.parameter) || {};
-}
-
-function getSheet() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
-  }
-  if (sheet.getLastRow() === 0) {
-    var header = ['Timestamp'].concat(
-      FIELDS.map(function (f) {
-        return f.charAt(0).toUpperCase() + f.slice(1);
-      })
-    );
-    sheet.appendRow(header);
-    sheet.getRange(1, 1, 1, header.length).setFontWeight('bold');
-    sheet.setFrozenRows(1);
-  }
-  return sheet;
-}
-
-function jsonResponse(obj) {
-  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(
-    ContentService.MimeType.JSON
-  );
+  return ContentService
+    .createTextOutput(JSON.stringify({ success: true, message: "SCA Franchise endpoint is live." }))
+    .setMimeType(ContentService.MimeType.JSON);
 }
