@@ -12,7 +12,6 @@ export const initialValues = {
   mobile: '',
   whatsapp: '',
   email: '',
-  aadharNumber: '',
   address: '',
   city: '',
   state: '',
