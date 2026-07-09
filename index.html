@@ -51,40 +51,114 @@
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Educational Organization & Local Business Schema -->
+    <!-- Structured data: Organization, LocalBusiness, WebSite, Courses, FAQ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "EducationalOrganization",
+          "@type": ["EducationalOrganization", "LocalBusiness"],
           "@id": "https://www.smartcomputeracademy.online/#organization",
           "name": "Smart Computer Academy",
-          "url": "https://www.smartcomputeracademy.online",
+          "alternateName": ["Smart Computer Academy Kahalgaon", "SCA Kahalgaon"],
+          "url": "https://www.smartcomputeracademy.online/",
           "logo": "https://www.smartcomputeracademy.online/favicon.png",
-          "description": "ISO 9001:2015 certified computer training institute in Kahalgaon offering ADCA, DCA, Tally Prime, Web Development and more, with 100% practical training and placement assistance.",
+          "image": "https://www.smartcomputeracademy.online/og-image.png",
+          "description": "ISO 9001:2015 certified computer training institute in Kahalgaon offering ADCA, DCA, Tally Prime with GST, PGDCA, CCC, Graphic Design and Web Development with 100% practical training, DigiLocker certificates and job placement assistance.",
+          "telephone": "+919905788324",
+          "email": "smartcomputeracademy.kgn@gmail.com",
+          "priceRange": "₹₹",
+          "currenciesAccepted": "INR",
+          "foundingDate": "2015",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "1st Floor, S.S.V. College Road, Near STS Coaching",
             "addressLocality": "Kahalgaon",
             "addressRegion": "Bihar",
+            "postalCode": "813203",
             "addressCountry": "IN"
-          }
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 25.264568,
+            "longitude": 86.927948
+          },
+          "hasMap": "https://maps.app.goo.gl/?q=Smart+Computer+Academy+Kahalgaon",
+          "areaServed": [
+            { "@type": "City", "name": "Kahalgaon" },
+            { "@type": "City", "name": "Bhagalpur" },
+            { "@type": "State", "name": "Bihar" }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "09:00",
+              "closes": "19:00"
+            }
+          ],
+          "sameAs": [
+            "https://facebook.com/smartcomputeracademykahalgaon",
+            "https://instagram.com/smartcomputeracademy",
+            "https://youtube.com/@smartcomputeracademy"
+          ]
         },
         {
-          "@type": "LocalBusiness",
-          "parentOrganization": {
-             "@id": "https://www.smartcomputeracademy.online/#organization"
-          },
+          "@type": "WebSite",
+          "@id": "https://www.smartcomputeracademy.online/#website",
+          "url": "https://www.smartcomputeracademy.online/",
           "name": "Smart Computer Academy Kahalgaon",
-          "telephone": "+919905788324",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "1st Floor, S.S.V. College Road, Near STS Coaching",
-            "addressLocality": "Kahalgaon",
-            "addressRegion": "Bihar",
-            "addressCountry": "IN"
-          }
+          "inLanguage": "en-IN",
+          "publisher": { "@id": "https://www.smartcomputeracademy.online/#organization" }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://www.smartcomputeracademy.online/#courses",
+          "name": "Computer Courses at Smart Computer Academy",
+          "itemListElement": [
+            {
+              "@type": "Course",
+              "name": "ADCA - Advance Diploma in Computer Application",
+              "description": "1-year advanced computer diploma covering MS Office, Tally with GST, DTP, Photoshop and internet — best for job seekers.",
+              "provider": { "@id": "https://www.smartcomputeracademy.online/#organization" }
+            },
+            {
+              "@type": "Course",
+              "name": "DCA - Diploma in Computer Application",
+              "description": "6-month foundation computer course covering MS Word, Excel, PowerPoint and internet basics.",
+              "provider": { "@id": "https://www.smartcomputeracademy.online/#organization" }
+            },
+            {
+              "@type": "Course",
+              "name": "Tally Prime with GST",
+              "description": "6-month industry-standard accounting course covering Tally Prime, GST filing, accounting and balance sheets.",
+              "provider": { "@id": "https://www.smartcomputeracademy.online/#organization" }
+            },
+            {
+              "@type": "Course",
+              "name": "PGDCA - Post Graduate Diploma in Computer Application",
+              "description": "1-year post-graduate computer diploma covering advanced programming, database management and web technologies.",
+              "provider": { "@id": "https://www.smartcomputeracademy.online/#organization" }
+            },
+            {
+              "@type": "Course",
+              "name": "Web Development",
+              "description": "6-month course covering HTML, CSS, JavaScript, WordPress and responsive design to build websites and earn online.",
+              "provider": { "@id": "https://www.smartcomputeracademy.online/#organization" }
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.smartcomputeracademy.online/#faq",
+          "mainEntity": [
+            { "@type": "Question", "name": "What courses are available?", "acceptedAnswer": { "@type": "Answer", "text": "We offer DCA, ADCA, Tally Prime with GST, Web Development, Graphic Designing, Python, C++, Digital Marketing, AI Tools and Cyber Security." } },
+            { "@type": "Question", "name": "How can I take admission?", "acceptedAnswer": { "@type": "Answer", "text": "You can apply online using the 'Apply for Admission' button, or visit our centre on S.S.V. College Road, Kahalgaon for manual registration." } },
+            { "@type": "Question", "name": "Is placement assistance available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we provide 100% placement assistance, resume building and mock interviews for our professional course students." } },
+            { "@type": "Question", "name": "Can I become a franchise partner?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer a complete franchise model with brand, marketing and technical support. Fill the franchise enquiry form to get started." } },
+            { "@type": "Question", "name": "How are certificates verified?", "acceptedAnswer": { "@type": "Answer", "text": "All certificates carry a unique QR code and registration number that can be verified instantly on our online portal, and are available on DigiLocker." } },
+            { "@type": "Question", "name": "What is the eligibility for ADCA?", "acceptedAnswer": { "@type": "Answer", "text": "Students who have passed 10th or 12th standard are eligible for the ADCA course." } }
+          ]
         }
       ]
     }

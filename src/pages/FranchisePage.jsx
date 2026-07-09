@@ -3,8 +3,11 @@ import { Building2, CheckCircle2 } from 'lucide-react';
 import FranchiseEnquiryForm from '@/features/franchise/components/FranchiseEnquiryForm';
 import FAQSection from '../components/sections/FAQSection';
 import { siteInfo } from '@/config/site';
+import useSeo from '@/hooks/useSeo';
+import { SEO } from '@/config/seo';
 
 export default function FranchisePage() {
+  useSeo(SEO.franchise);
   return (
     <div className="pt-16">
       <section

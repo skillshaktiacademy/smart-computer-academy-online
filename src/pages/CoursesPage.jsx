@@ -4,6 +4,8 @@ import { Clock, GraduationCap, ArrowRight, Tag, CheckCircle2, Phone, Sparkles } 
 import SectionHeader from '../components/ui/SectionHeader';
 import { siteInfo } from '@/config/site';
 import { courseImage } from '@/config/media';
+import useSeo from '@/hooks/useSeo';
+import { SEO } from '@/config/seo';
 
 const colorBg = {
   green:  'bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/30',
@@ -32,6 +34,7 @@ const pricingRows = [
 ];
 
 export default function CoursesPage() {
+  useSeo(SEO.courses);
   return (
     <main className="pt-20 pb-16">
       {/* Hero Banner */}

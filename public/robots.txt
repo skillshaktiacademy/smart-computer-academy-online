@@ -1,8 +1,14 @@
 User-agent: *
 Allow: /
 
-# Block internal/utility pages
+# Utility page — not useful in search results
 Disallow: /verify-certificate
 
-# Sitemap location
-Sitemap: https://smartcomputeracademy.com/sitemap.xml
+# Allow all major crawlers full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://www.smartcomputeracademy.online/sitemap.xml

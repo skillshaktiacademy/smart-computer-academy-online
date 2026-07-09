@@ -1,8 +1,20 @@
 import SectionHeader from '../components/ui/SectionHeader';
 import { legalContent, LEGAL_LAST_UPDATED } from '@/config/legalContent';
+import useSeo from '@/hooks/useSeo';
+
+const LEGAL_PATHS = {
+  'Privacy Policy': '/privacy',
+  'Terms of Service': '/terms',
+  'Refund Policy': '/refund',
+};
 
 export default function LegalPage({ title }) {
   const sections = legalContent[title] || [];
+  useSeo({
+    title: `${title} | Smart Computer Academy Kahalgaon`,
+    description: `${title} of Smart Computer Academy, Kahalgaon — an ISO 9001:2015 certified computer training institute.`,
+    path: LEGAL_PATHS[title] || '',
+  });
 
   return (
     <div className="pt-24 pb-20 min-h-[70vh]">

@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { GraduationCap, CheckCircle2 } from 'lucide-react';
 import AdmissionEnquiryForm from '@/features/admission/components/AdmissionEnquiryForm';
 import { siteInfo } from '@/config/site';
+import useSeo from '@/hooks/useSeo';
+import { SEO } from '@/config/seo';
 
 const highlights = [
   '100% Practical Training',
@@ -13,6 +15,7 @@ const highlights = [
 ];
 
 export default function AdmissionPage() {
+  useSeo(SEO.admission);
   return (
     <div className="pt-16">
       <section
