@@ -1,9 +1,25 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Phone, MapPin } from 'lucide-react';
 import { siteInfo } from '@/config/site';
 
 export default function FranchiseSection() {
+  const [form, setForm] = useState({ firstName: '', lastName: '', phone: '', city: '' });
+
+  const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = `${form.firstName} ${form.lastName}`.trim();
+    const message =
+      `Franchise Enquiry — Smart Computer Academy%0A` +
+      `Name: ${name || '-'}%0A` +
+      `Phone: ${form.phone || '-'}%0A` +
+      `City: ${form.city || '-'}`;
+    window.open(`${siteInfo.whatsappLink}?text=${message}`, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section
       id="franchise"
@@ -95,13 +111,16 @@ export default function FranchiseSection() {
               <p className="text-sm text-muted-foreground text-center mb-6">
                 हमसे संपर्क करें — हम आपकी मदद करेंगे
               </p>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label className="text-sm font-medium" htmlFor="f-fname">First Name</label>
                     <input
                       id="f-fname"
+                      name="firstName"
                       type="text"
+                      value={form.firstName}
+                      onChange={handleChange}
                       className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
                       placeholder="Rahul"
                     />
@@ -110,7 +129,10 @@ export default function FranchiseSection() {
                     <label className="text-sm font-medium" htmlFor="f-lname">Last Name</label>
                     <input
                       id="f-lname"
+                      name="lastName"
                       type="text"
+                      value={form.lastName}
+                      onChange={handleChange}
                       className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
                       placeholder="Kumar"
                     />
@@ -120,8 +142,11 @@ export default function FranchiseSection() {
                   <label className="text-sm font-medium" htmlFor="f-phone">Phone Number *</label>
                   <input
                     id="f-phone"
+                    name="phone"
                     type="tel"
                     required
+                    value={form.phone}
+                    onChange={handleChange}
                     className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
                     placeholder="+91 XXXXX XXXXX"
                   />
@@ -130,19 +155,24 @@ export default function FranchiseSection() {
                   <label className="text-sm font-medium" htmlFor="f-city">City / District</label>
                   <input
                     id="f-city"
+                    name="city"
                     type="text"
+                    value={form.city}
+                    onChange={handleChange}
                     className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
                     placeholder="e.g. Bhagalpur"
                   />
                 </div>
-                <a
-                  href={`${siteInfo.whatsappLink}?text=${encodeURIComponent('Hello, I want to enquire about Smart Computer Academy Franchise.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="submit"
                   className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white py-3 rounded-xl font-bold transition-colors mt-2 touch-manipulation"
                 >
                   Submit via WhatsApp <ArrowRight size={16} />
-                </a>
+                </button>
+                <p className="text-xs text-muted-foreground text-center">
+                  Or use the detailed form on the{' '}
+                  <Link to="/franchise" className="text-primary hover:underline">Franchise page</Link>.
+                </p>
               </form>
             </div>
             {/* Decorative bg */}

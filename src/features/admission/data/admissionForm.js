@@ -3,9 +3,9 @@
 // "SCA Admission" Google Sheet. Keep FIELD ORDER in sync with the
 // appendRow() order in apps-script/Admission.gs.
 
-// TODO: Replace with the /exec URL of the Admission Apps Script deployment.
-// (Deploy apps-script/Admission.gs as a Web app and paste its URL here.)
-export const ADMISSION_ENDPOINT = 'YOUR_ADMISSION_GOOGLE_SCRIPT_WEB_APP_URL';
+// Deployed Apps Script web app for the "SCA Admission" Google Sheet.
+export const ADMISSION_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbwpT_DZoD-7UyY_Pq_zb6fzqkd_hiR5RSeSTeieQZELO4sF1nGLZ8XGbDe_ka_kjWX9Bw/exec';
 
 export const initialValues = {
   studentName: '',
