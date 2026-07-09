@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, ArrowRight, GraduationCap, Building2, BadgeCheck } from 'lucide-react';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 import SocialLinks from '../ui/SocialLinks';
 import logo from '../../assets/Logo/sca-logo-256.png';
 

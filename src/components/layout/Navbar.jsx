@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, GraduationCap, Building2 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 import logo from '../../assets/Logo/sca-logo-256.png';
 
 const navLinks = [

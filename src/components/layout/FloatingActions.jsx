@@ -1,5 +1,5 @@
 import { Phone } from 'lucide-react';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 
 const waHref = `${siteInfo.whatsappLink}?text=${encodeURIComponent(siteInfo.whatsappMessage || '')}`;
 

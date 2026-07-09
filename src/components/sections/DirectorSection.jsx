@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Quote, Phone, BadgeCheck } from 'lucide-react';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 import praveenImg from '../../assets/Team/praveen.jpeg';
 
 export default function DirectorSection() {

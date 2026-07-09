@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, UserPlus, Building2 } from 'lucide-react';
-import { media } from '../../data/media';
+import { media } from '@/config/media';
 
 export default function HeroSection() {
   return (

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 import { ShieldCheck, BadgeCheck } from 'lucide-react';
 
 export default function TrustSection() {

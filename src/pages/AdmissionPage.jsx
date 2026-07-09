@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, CheckCircle2 } from 'lucide-react';
-import AdmissionEnquiryForm from '../components/admission/AdmissionEnquiryForm';
-import { siteInfo } from '../data/site';
+import AdmissionEnquiryForm from '@/features/admission/components/AdmissionEnquiryForm';
+import { siteInfo } from '@/config/site';
 
 const highlights = [
   '100% Practical Training',

@@ -29,7 +29,7 @@ import {
   existingInstituteOptions,
   preferredContactTimeOptions,
   heardFromOptions,
-} from '../../data/franchiseForm';
+} from '@/features/franchise/data/franchiseForm';
 
 const inputBase =
   'w-full rounded-lg border border-input bg-background pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors disabled:opacity-60';

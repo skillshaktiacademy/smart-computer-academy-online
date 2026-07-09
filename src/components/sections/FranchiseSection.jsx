@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Phone, MapPin } from 'lucide-react';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 
 export default function FranchiseSection() {
   return (

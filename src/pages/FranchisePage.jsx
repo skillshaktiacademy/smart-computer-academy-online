@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import FranchiseSection from '../components/sections/FranchiseSection';
-import FranchiseEnquiryForm from '../components/franchise/FranchiseEnquiryForm';
+import FranchiseEnquiryForm from '@/features/franchise/components/FranchiseEnquiryForm';
 import FAQSection from '../components/sections/FAQSection';
 
 export default function FranchisePage() {

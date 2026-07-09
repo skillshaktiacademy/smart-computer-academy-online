@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Clock, GraduationCap, ArrowRight, Tag, CheckCircle2, Phone, Sparkles } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
-import { siteInfo } from '../data/site';
-import { courseImage } from '../data/media';
+import { siteInfo } from '@/config/site';
+import { courseImage } from '@/config/media';
 
 const colorBg = {
   green:  'bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/30',

@@ -1,6 +1,6 @@
 import { MapPin, Phone, Mail, Clock, Navigation } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 
 export default function ContactSection() {
   return (

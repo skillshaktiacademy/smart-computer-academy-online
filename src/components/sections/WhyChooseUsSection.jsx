@@ -4,7 +4,7 @@ import {
   Monitor, GraduationCap, Briefcase, Award, Target, Wallet,
   Cpu, Clock, Globe, BookOpen, Shield, Heart
 } from 'lucide-react';
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 
 const iconMap = {
   Monitor, GraduationCap, Briefcase, Award, Target, Wallet,

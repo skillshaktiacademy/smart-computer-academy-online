@@ -1,4 +1,4 @@
-import { siteInfo } from '../../data/site';
+import { siteInfo } from '@/config/site';
 
 // Brand SVG icons (lucide dropped brand logos, so we inline them for accuracy).
 const Icon = {

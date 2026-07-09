@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../ui/SectionHeader';
 import { Clock, GraduationCap, ArrowRight, Tag, Sparkles } from 'lucide-react';
-import { siteInfo } from '../../data/site';
-import { courseImage } from '../../data/media';
+import { siteInfo } from '@/config/site';
+import { courseImage } from '@/config/media';
 
 const colorMap = {
   green:  'from-green-500/20 to-green-600/5 border-green-500/30 text-green-600',

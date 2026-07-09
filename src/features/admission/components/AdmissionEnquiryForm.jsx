@@ -31,8 +31,8 @@ import {
   preferredBatchOptions,
   preferredContactTimeOptions,
   heardFromOptions,
-} from '../../data/admissionForm';
-import { siteInfo } from '../../data/site';
+} from '@/features/admission/data/admissionForm';
+import { siteInfo } from '@/config/site';
 
 const inputBase =
   'w-full rounded-lg border border-input bg-background pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors disabled:opacity-60';
